@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import axios from "axios";
 
 const App = () => {
@@ -15,6 +15,19 @@ const App = () => {
 			.catch((err) => {
 				console.error(err);
 			});
+	};
+
+	/**
+	 * UseEffect c'est un hook qui permet de gérer les interactions avec le DOM
+	 * Ici, nous allons utiliser le hook useEffect pour appeler la fonction getJoke() lors du chargement de la page
+	 */
+
+	useEffect(() => {
+		getJoke();
+	}, []);
+
+	const handleClick = () => {
+		getJoke();
 	};
 
 	return (
@@ -44,7 +57,7 @@ const App = () => {
 						<div class="render">
 							<span class="quote">{joke}</span>
 						</div>
-						<button>Une autre blague</button>
+						<button onClick={handleClick}>Une autre blague</button>
 					</div>
 				</section>
 			</main>
