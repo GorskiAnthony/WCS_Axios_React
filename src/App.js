@@ -1,6 +1,22 @@
 import React, { Fragment } from "react";
+import axios from "axios";
 
 const App = () => {
+	const API = "https://api.chucknorris.io/jokes/random";
+
+	const [joke, setJoke] = React.useState("");
+
+	const getJoke = () => {
+		axios
+			.get(API)
+			.then((res) => {
+				setJoke(res.data.value);
+			})
+			.catch((err) => {
+				console.error(err);
+			});
+	};
+
 	return (
 		<Fragment>
 			<header>
@@ -26,9 +42,7 @@ const App = () => {
 					<h1>Une blague sur Chuck Norris ?</h1>
 					<div>
 						<div class="render">
-							<span class="quote">
-								Jesus shamelessly wore a Chuck Norris beard
-							</span>
+							<span class="quote">{joke}</span>
 						</div>
 						<button>Une autre blague</button>
 					</div>
