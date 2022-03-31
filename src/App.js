@@ -44,10 +44,10 @@ const App = () => {
 					<p>
 						Comment ? En utilisant
 						<a
-							href="https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch"
+							href="https://www.npmjs.com/package/axios"
 							target="_blank"
 						>
-							<code>fetch</code>
+							<code>axios</code>
 						</a>
 					</p>
 				</section>
